@@ -1,25 +1,26 @@
+import React from 'react'
+import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
+import { useSelector,useDispatch } from 'react-redux'
 
-import FacebookLogin from 'react-facebook-login';
+//Internal Component import
+import Messages from './page/Messages/Messages';
+import Login from './page/Login/Login';
+import Error from './page/Error/Error';
 
 function App() {
-
-  const responseFacebook = (response) => {
-    console.log(response);
-  }
-
-  const componentClicked = () => {
-    console.log('component clicked');
-  }
+  const { user } = useSelector(state => state.AuthReducer)
 
   return (
-    <div className="App">
-      <FacebookLogin
-      appId="240379330783555"
-      autoLoad={false}
-      fields="name,email,picture"
-      onClick={componentClicked}
-      callback={responseFacebook} />
-    </div>
+    <BrowserRouter>
+      <div className="App">
+      <Switch>
+          <Route path="/" exact>
+          {user?<Messages/> : <Login/>}
+        </Route>
+        <Route exact component={Error}/>
+      </Switch>
+      </div>
+    </BrowserRouter>
   );
 }
 

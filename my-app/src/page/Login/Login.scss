@@ -1,0 +1,194 @@
+.loginContainer{
+    max-width: 1200px;
+    margin: auto;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .loginWrapper{
+        width: 80%;
+        height: 100%;
+        display: flex;
+
+        @media (max-width:840px) {
+            width: 90%;
+        }
+
+        @media (max-width:768px) {
+            flex-direction: column;
+        }
+
+        // Login Left Side
+        .loginLeft{
+            flex: 1;
+            padding: 0 20px;
+            align-self: center;
+        
+            @media (max-width:768px) {
+                text-align: center;
+                margin-bottom: 2rem;
+            }
+
+            .loginLeftTitle{
+                font-size: 3rem;
+                font-weight: 600;
+                color: #2B80FF;
+                margin-bottom: 1rem;
+
+                @media (max-width:768px) {
+                    font-size: 2.5rem;
+                    margin-bottom: .5rem;
+                }
+            }
+
+            .loginLeftDesc{
+                font-size: 20px;
+
+                @media (max-width:768px) {
+                    font-size: 16px;
+                }
+            }
+        }
+
+        // Login Right Side 
+        .loginRight{
+            flex: 1;
+
+            .loginBox{
+                background: white;
+                box-shadow: 0 0 10px #00000011;
+                border-radius: 10px;
+                align-items: center;
+                padding: 40px 40px;
+                display: flex;
+                flex-direction: column;
+                text-align: center;
+
+                form.loginForm{
+                    width: 90%;
+
+                    @media (max-width:768px) {
+                        width: 80%;
+                    }
+
+                    @media (max-width:500px) {
+                        width: 100%;
+                    }
+    
+                    &>div{
+                        width: 100%;
+                        margin: auto;
+                        margin-bottom:30px; 
+                        position: relative; 
+                        
+                        &>div{
+                            width: 100%;
+                        }
+                    
+                        .MuiInputLabel-outlined {
+                            transform: translate(14px, 15px) scale(1) !important;
+                        }
+                                            
+                        .MuiInputLabel-outlined.MuiInputLabel-shrink {
+                            transform: translate(14px, -6px) scale(.75) !important;
+                        }
+    
+                        .MuiOutlinedInput-input {
+                            padding: 12.5px 14px !important;
+                        }
+    
+                        input#outlined-password-input{
+                            padding-right: 50px;
+                        }
+    
+                        label.MuiFormControlLabel-root{
+                            position: absolute;
+                            right: -5px;
+    
+                            .MuiCheckbox-colorSecondary.Mui-checked {
+                                color: #545454;
+                            }
+                        }
+                    }
+    
+                    .loginButton {
+                        width: 100%;
+                        padding: 6px;
+                        background: #177eee;
+                        color: white;
+                        font-size: 18px;
+                        border: none;
+                        outline: none;
+                        border-radius: 6px;
+                        cursor: pointer;
+                        margin-bottom: 10px;
+                    }
+                    
+                }
+
+                .loginWith{
+                    font-size: 20px;
+
+                    @media (max-width:768px) {
+                        font-size: 16px;
+                    }
+                }
+
+                .alternateLogin{
+                    margin-top: 10px;
+
+                    .facebookButton{
+                            
+                        .kep-login-facebook.metro{
+                            background: transparent;
+                            border: none;
+                            padding: 5px 10px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+
+                            .facebookIcon{
+                                margin-right: 10px;
+                                background-color:transparent;
+                            }
+                        }
+                    }
+
+                }
+
+                .dontAccount{
+                    margin: 10px 0;
+                    font-size: 18px;
+
+                    @media (max-width:768px) {
+                        font-size: 16px;
+                    }
+                }
+
+                .RegisterButton{
+                    background-color: #42b72a;
+                    padding: 6px;
+                    color: white;
+                    font-size: 18px;
+                    cursor: pointer;
+                    width:90%;
+
+                    @media (max-width:768px) {
+                        width: 80%;
+                    }
+
+                    @media (max-width:500px) {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width:800px) {
+    button{
+        font-size: 14px !important;
+    }
+}
