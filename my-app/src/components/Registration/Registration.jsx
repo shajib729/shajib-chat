@@ -4,7 +4,7 @@ import {TextField,FormControlLabel,Checkbox,Button } from '@material-ui/core'
 import { Facebook,Close,VisibilityOff,Visibility } from '@material-ui/icons'
 import FacebookLogin from 'react-facebook-login';
 import toast, { Toaster } from 'react-hot-toast';
-import { useSelector,useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 
 
 const Registration = ({ setHandlePopup,handlePopup }) => {

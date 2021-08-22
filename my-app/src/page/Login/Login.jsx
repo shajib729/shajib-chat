@@ -133,7 +133,14 @@ const Login = () => {
                     <form onSubmit={handleSubmit} className="loginForm" noValidate autoComplete="off">
                         <TextField onChange={handleChange} value={values.email} name="email" id="outlined-basic" type="email" label="Email" variant="outlined" />
                         <div className="fields">
-                        <TextField onChange={handleChange} value={values.password} name="password" id="outlined-basic" type="password" label="Password" variant="outlined" type={showPassword?'text':'password'} />
+                        <TextField 
+                        onChange={handleChange} 
+                        value={values.password} 
+                        name="password" 
+                        id="outlined-basic" 
+                        label="Password" 
+                        variant="outlined" 
+                        type={showPassword? 'text':'password'} />
                         <FormControlLabel onClick={()=>setShowPassword(!showPassword)} control={<Checkbox icon={<VisibilityOff />} checkedIcon={<Visibility />}/>} />
                         </div>
                         <Button className="loginButton" type="submit" variant="contained" color="primary">
