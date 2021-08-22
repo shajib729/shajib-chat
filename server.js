@@ -18,12 +18,14 @@ app.use('/api', require('./routes/conversation'))
 app.use('/api', require('./routes/message'))
 
 // 3: setup in heroku 
-if (process.env.NODE_ENV === 'production') {
-    app.use(express.static(path.join(__dirname,"/my-app/build/")))
-    app.get('*', (req, res) => {
-        res.sendFile(path.resolve(__dirname,"my-app",'build','index.html'))
-    })
-}
+if (process.env.NODE_ENV === "production") {
+    // Serve any static files
+    app.use(express.static(path.join(__dirname, "my-app/build")));
+    // Handle React routing, return all requests to React app
+    app.get("*", function (req, res) {
+      res.sendFile(path.join(__dirname, "my-app/build", "index.html"));
+    });
+  }
 
 http.listen(port, () => {
     console.log(`Server is listening at http://localhost:${port}`);
