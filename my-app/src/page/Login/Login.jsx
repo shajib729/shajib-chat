@@ -5,10 +5,10 @@ import {TextField,Button,FormControlLabel,Checkbox} from '@material-ui/core'
 import { Facebook,Visibility,VisibilityOff } from '@material-ui/icons'
 import Registration from '../../components/Registration/Registration';
 import toast, { Toaster } from 'react-hot-toast';
-import { useSelector,useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 
 const Login = () => {
-    const { user } = useSelector(state => state.AuthReducer)
+    // const { user } = useSelector(state => state.AuthReducer)
     const dispatch=useDispatch()
     
     const [handlePopup,setHandlePopup]=useState(false)
