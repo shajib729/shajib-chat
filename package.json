@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "nodemon server.js",
+    "clientInstall": "npm install --prefix my-app",
+    "build": "npm run build --prefix my-app",
+    "heroku-postbuild": "npm run clientInstall && npm run build"
   },
   "keywords": [],
   "author": "",
