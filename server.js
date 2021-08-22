@@ -6,11 +6,9 @@ const port = process.env.PORT || 5000
 const path = require('path')
 const cookieParser = require('cookie-parser')
 // const io=require("sockekt.io")
-const cors = require("cors");
 
 require('./db/conn')
 app.use(cookieParser())
-app.use(cors());
 //parser
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
