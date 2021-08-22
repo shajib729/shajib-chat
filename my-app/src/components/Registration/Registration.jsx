@@ -176,7 +176,7 @@ const Registration = ({ setHandlePopup,handlePopup }) => {
                     <span className="signupWth">Or</span>
                     <Button className="facebookButton" variant="contained" color="primary">
                         <FacebookLogin
-                            appId="240379330783555"
+                            appId="324210142742626"
                             autoLoad={false}
                             fields="name,email,picture"
                             callback={responseFacebook}

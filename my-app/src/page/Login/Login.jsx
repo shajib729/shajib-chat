@@ -147,7 +147,7 @@ const Login = () => {
                     <div className="alternateLogin">
                         <Button className="facebookButton" variant="contained" color="primary">
                            <FacebookLogin
-                                appId="240379330783555"
+                                appId="324210142742626"
                                 autoLoad={false}
                                 fields="id,email,picture"
                                 callback={responseFacebook}
