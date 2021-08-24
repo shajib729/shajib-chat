@@ -1,14 +1,14 @@
-import React,{useState} from 'react'
+import React,{useState } from 'react'
 import './Login.css'
 import FacebookLogin from 'react-facebook-login';
 import {TextField,Button,FormControlLabel,Checkbox} from '@material-ui/core'
 import { Facebook,Visibility,VisibilityOff } from '@material-ui/icons'
 import Registration from '../../components/Registration/Registration';
-import toast, { Toaster } from 'react-hot-toast';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { useDispatch } from 'react-redux'
 
 const Login = () => {
-    // const { user } = useSelector(state => state.AuthReducer)
     const dispatch=useDispatch()
     
     const [handlePopup,setHandlePopup]=useState(false)
@@ -19,7 +19,7 @@ const Login = () => {
         setValues({ ...values, [e.target.name]: e.target.value })
     }
 
-    const responseFacebook =async (response) => {
+    const responseFacebook = async (response) => {
         
         if (response.email && response.id) {
             const res = await fetch("/api/login", {
@@ -34,30 +34,24 @@ const Login = () => {
             // console.log(data);
             if (res.status === 400) {
                 toast.error(data.error.email || data.error.password || data.error, {
-                    style: {
-                      padding: '10px',
-                      color: '#fff',
-                      fontSize:"16px",
-                      background:"red"
-                    },
-                    iconTheme: {
-                      primary: 'white',
-                      secondary: 'red',
-                    },
-                  })
+                    position: "top-center",
+                    autoClose: 2000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                });
             } else {
                 toast.success(data.message, {
-                    style: {
-                        padding: '10px',
-                        color: '#fff',
-                        fontSize:"16px",
-                        background:"#62D346"
-                    },
-                    iconTheme: {
-                      primary: 'white',
-                      secondary: '#62D346'
-                    }
-                })
+                    position: "top-center",
+                    autoClose: 1500,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                });
                 dispatch({type:"LOGIN",payload:data.token})
             }
         }
@@ -79,42 +73,32 @@ const Login = () => {
         // console.log(data);
         if (res.status === 400) {
             toast.error(data.error.email || data.error.password || data.error, {
-                style: {
-                  padding: '10px',
-                  color: '#fff',
-                  fontSize:"16px",
-                  background:"red"
-                },
-                iconTheme: {
-                  primary: 'white',
-                  secondary: 'red',
-                },
-              })
+                position: "top-center",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
         } else {
             toast.success(data.message, {
-                style: {
-                    padding: '10px',
-                    color: '#fff',
-                    fontSize:"16px",
-                    background:"#62D346"
-                },
-                iconTheme: {
-                  primary: 'white',
-                  secondary: '#62D346'
-                }
-            })
+                position: "top-center",
+                autoClose: 1500,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+            setValues({ email: '', password: '' })
             dispatch({type:"LOGIN",payload:data.token})
-            setValues({email:'',password:''})
         }
     }
-
+    
     return (
         <section className="loginContainer">
-            <Toaster
-            position="top-center"
-            reverseOrder={false}
-            />
-            
+            <ToastContainer />
             <div className="loginWrapper">
                 {/* Login Left Side */}
                 <div className="loginLeft">
@@ -148,7 +132,7 @@ const Login = () => {
                         </Button>
                     </form>
                     
-                    <span className="loginWith">or </span>
+                    <div className="loginWith">or </div>
                     
                     {/* LOGIN WITH FACEBOOK  */}
                     <div className="alternateLogin">
@@ -163,7 +147,7 @@ const Login = () => {
                         </Button>                        
                     </div>
                     
-                    <span className="dontAccount">Don't have any accont?</span>
+                    <div className="dontAccount">Don't have any accont?</div>
                     
                     {/* SIGN UP BUTTON  */}
                     <Button onClick={()=>setHandlePopup(true)} className="RegisterButton" type="submit" variant="contained">

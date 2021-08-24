@@ -1,0 +1,153 @@
+.RightContainer {
+  -webkit-box-flex: 3;
+      -ms-flex: 3;
+          flex: 3;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  height: calc(100vh - 65px);
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  overflow-y: auto;
+}
+
+@media (max-width: 750px) {
+  .RightContainer {
+    -webkit-box-flex: 4;
+        -ms-flex: 4;
+            flex: 4;
+  }
+}
+
+.RightContainer .rightTopBar {
+  min-height: 70px;
+  padding: 10px;
+  background: #e6f2ff;
+  -webkit-box-shadow: 0 3px 5px #00000010;
+          box-shadow: 0 3px 5px #00000010;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 9;
+}
+
+.RightContainer .rightTopBar .profile {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.RightContainer .rightTopBar .profile .backMobileButton {
+  cursor: pointer;
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .RightContainer .rightTopBar .profile .backMobileButton {
+    display: block;
+  }
+}
+
+.RightContainer .rightTopBar .profile .profileImage {
+  width: 50px;
+  height: 50px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.RightContainer .rightTopBar .profile .profileName {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.RightContainer .rightMiddle {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.RightContainer .rightBottom {
+  width: 100%;
+  position: -webkit-sticky;
+  position: sticky;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  -webkit-box-shadow: 0 -3px 5px #00000010;
+          box-shadow: 0 -3px 5px #00000010;
+  background: #e6f2ff;
+}
+
+.RightContainer .rightBottom .messageForm {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 10px 20px;
+  position: relative;
+}
+
+.RightContainer .rightBottom .messageForm .messageInput {
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 10px 50px 10px 15px;
+  border-radius: 50px;
+  font-size: 16px;
+  -webkit-box-shadow: 2px 2px 8px #00000026;
+          box-shadow: 2px 2px 8px #00000026;
+  background: #e6f2ff;
+}
+
+.RightContainer .rightBottom .messageForm .submitButton {
+  border: none;
+  outline: none;
+  position: absolute;
+  right: 30px;
+  background: none;
+  cursor: pointer;
+}
+
+.RightContainer .rightBottom .messageForm .submitButton svg {
+  color: #4886d3;
+}
+
+@media (max-width: 768px) {
+  .RightContainer {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .RightContainer.mobileActive {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+  }
+}
+/*# sourceMappingURL=Right.css.map */

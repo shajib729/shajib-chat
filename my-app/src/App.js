@@ -14,7 +14,10 @@ function App() {
     <BrowserRouter>
       <div className="App">
       <Switch>
-          <Route path="/" exact>
+        <Route path="/" exact>
+          {user?<Messages/> : <Login/>}
+        </Route>
+        <Route path="/message/:id" exact>
           {user?<Messages/> : <Login/>}
         </Route>
         <Route exact component={Error}/>

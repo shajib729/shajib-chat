@@ -69,6 +69,7 @@
 
 .loginContainer .loginWrapper .loginLeft .loginLeftDesc {
   font-size: 20px;
+  color: var(--main-font-color);
 }
 
 @media (max-width: 768px) {
@@ -84,7 +85,7 @@
 }
 
 .loginContainer .loginWrapper .loginRight .loginBox {
-  background: white;
+  background: var(--login-bg-color);
   -webkit-box-shadow: 0 0 10px #00000011;
           box-shadow: 0 0 10px #00000011;
   border-radius: 10px;
@@ -132,6 +133,7 @@
 .loginContainer .loginWrapper .loginRight .loginBox form.loginForm > div .MuiInputLabel-outlined {
   -webkit-transform: translate(14px, 15px) scale(1) !important;
           transform: translate(14px, 15px) scale(1) !important;
+  color: var(--main-font-color);
 }
 
 .loginContainer .loginWrapper .loginRight .loginBox form.loginForm > div .MuiInputLabel-outlined.MuiInputLabel-shrink {
@@ -171,6 +173,7 @@
 
 .loginContainer .loginWrapper .loginRight .loginBox .loginWith {
   font-size: 20px;
+  color: var(--main-font-color);
 }
 
 @media (max-width: 768px) {
@@ -212,6 +215,10 @@
   .loginContainer .loginWrapper .loginRight .loginBox .dontAccount {
     font-size: 16px;
   }
+}
+
+.loginContainer .loginWrapper .loginRight .loginBox .dontAccount {
+  color: var(--main-font-color) !important;
 }
 
 .loginContainer .loginWrapper .loginRight .loginBox .RegisterButton {

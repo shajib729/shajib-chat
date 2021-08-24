@@ -1,0 +1,116 @@
+.RightContainer{
+    flex:3;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: calc(100vh - 65px);
+    position: sticky;
+    top: 0;
+    overflow-y: auto;
+    
+    @media (max-width:750px) {
+        flex: 4;
+    }
+
+    // RIGHT TOP BAR
+    .rightTopBar{
+        min-height: 70px;
+        padding: 10px;
+        background: #e6f2ff;
+        box-shadow: 0 3px 5px #00000010;
+        position: sticky;
+        top: 0;
+        z-index: 9;
+
+        .profile{
+            display: flex;
+            align-items: center;
+
+            .backMobileButton{
+                cursor: pointer;
+                display: none;
+
+                @media (max-width:768px) {
+                    display: block;
+                }
+            }
+
+            .profileImage{
+                width: 50px;
+                height: 50px;
+                object-fit: cover;
+                border-radius: 50%;
+                margin-right: 15px;
+            }
+
+            .profileName{
+                font-size: 18px;
+                font-weight: 500;
+            }
+        }
+    }
+
+    // Right Middle Bar
+    .rightMiddle {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+    }
+
+
+    // Right Bottom Bar
+    .rightBottom{
+        width: 100%;
+        position: sticky;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        box-shadow: 0 -3px 5px #00000010;
+        background: #e6f2ff;
+
+        .messageForm{
+            display: flex;
+            align-items: center;
+            padding: 10px 20px;
+            position: relative;
+
+            .messageInput{
+                width: 100%;
+                border: none;
+                outline: none;
+                padding: 10px 50px 10px 15px;
+                border-radius: 50px;
+                font-size: 16px;
+                box-shadow: 2px 2px 8px #00000026;
+                background: #e6f2ff;
+            }
+
+            .submitButton{
+                border: none;
+                outline: none;
+                position: absolute;
+                right: 30px;
+                background: none;
+                cursor: pointer;
+
+                svg{
+                    color: #4886d3;
+                }
+            }
+        }
+    }
+
+    // in mobile 
+    @media (max-width:768px) {
+        display: none;
+    }
+}
+
+.RightContainer.mobileActive{
+    
+    // in mobile 
+    @media (max-width:768px) {
+        display: flex !important;
+    }
+}

@@ -6,7 +6,7 @@ const {addMessage,getMessage} = require('./controllers/Message')
 // Create a new Message
 router.post('/newMessage', userAuth, addMessage)
 
-// Get a Message
+// Get Message of a Conversation by it's id
 router.get('/message/:conversationId', userAuth, getMessage)
 
 module.exports=router

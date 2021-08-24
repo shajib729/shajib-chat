@@ -1,0 +1,83 @@
+.leftContainer {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1;
+          flex: 1 1;
+  overflow-x: hidden;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  padding: 0 10px 10px 10px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-box-shadow: 2px 2px 3px #00000020;
+          box-shadow: 2px 2px 3px #00000020;
+  min-height: calc(100vh - 65px);
+  overflow-y: auto;
+}
+
+@media (max-width: 750px) {
+  .leftContainer {
+    -webkit-box-flex: 2;
+        -ms-flex: 2;
+            flex: 2;
+  }
+}
+
+.leftContainer .leftHeader {
+  border-bottom: 1px solid lightgray;
+  padding: 10px 5px;
+}
+
+.leftContainer .leftHeader .leftHeaderTitle {
+  font-size: 2.4rem;
+  color: black;
+  font-weight: 500;
+}
+
+.leftContainer .leftChatUsers .leftChatUser {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 8px 10px;
+  border-radius: 10px;
+  margin-top: 5px;
+  cursor: pointer;
+}
+
+.leftContainer .leftChatUsers .leftChatUser:hover {
+  background: #cacaca80;
+}
+
+.leftContainer .leftChatUsers .leftChatUser .profileImage {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin-right: 10px;
+}
+
+.leftContainer .leftChatUsers .leftChatUser .profileName {
+  font-size: 18px;
+  font-weight: 450;
+}
+
+.leftContainer .leftChatUsers .active .leftChatUser {
+  background: #cacacaba !important;
+}
+
+@media (max-width: 768px) {
+  .leftContainer {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .leftContainer.mobileLeftActive {
+    display: block;
+  }
+}
+/*# sourceMappingURL=Left.css.map */

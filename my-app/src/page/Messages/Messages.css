@@ -1,0 +1,19 @@
+.mainMessage {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: calc(100vh - 65px);
+  position: -webkit-sticky;
+  position: sticky;
+  top: 65px;
+  -webkit-box-sizing: border-box !important;
+          box-sizing: border-box !important;
+  overflow-y: auto;
+}
+
+@media (max-width: 768px) {
+  .mainMessage {
+    display: block;
+  }
+}
+/*# sourceMappingURL=Messages.css.map */

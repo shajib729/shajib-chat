@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import './Registration.css'
+import FacebookLogin from 'react-facebook-login';
 import {TextField,FormControlLabel,Checkbox,Button } from '@material-ui/core'
 import { Facebook,Close,VisibilityOff,Visibility } from '@material-ui/icons'
-import FacebookLogin from 'react-facebook-login';
 import toast, { Toaster } from 'react-hot-toast';
 import { useDispatch } from 'react-redux'
 
@@ -173,7 +173,7 @@ const Registration = ({ setHandlePopup,handlePopup }) => {
 
                 {/* REGISTER WITH FACEBOOK  */}
                 <div className="alternateLogin">
-                    <span className="signupWth">Or</span>
+                    <div className="signupWth">Or</div>
                     <Button className="facebookButton" variant="contained" color="primary">
                         <FacebookLogin
                             appId="324210142742626"

@@ -10,7 +10,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #eee;
+  background-color: var(--main-bg-color);
   overflow-x: hidden;
 }
 
@@ -38,4 +38,30 @@ h1,h2,h3,h4,h5,h6{
 }
 img{
   max-width: 100%;
+}
+
+:root{
+  --main-bg-color:#e6f2ff;  
+  --main-font-color:#242526;
+  --login-bg-color:#fff;
+}
+
+.dark{
+  --main-bg-color:#242526;
+  --login-bg-color:#212121;
+  --main-font-color:#fff;
+}
+
+/* Scroll bar style  */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #d2d2d2;
+  border-radius: 50px;
 }
