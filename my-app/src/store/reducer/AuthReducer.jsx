@@ -5,7 +5,8 @@ const initialState = {
     user: '',
     token: "",
     conversationUser: [],
-    currentChatUser:null
+    currentChatUser:null,
+    newUserData:''
 }
 
 const verifyToken = (token) => {
@@ -38,6 +39,7 @@ const AuthReducer = (state=initialState,action) => {
         return {
             ...state,
             user:verifyToken(action.payload),
+            newUserData:verifyToken(action.payload),
             token:action.payload
         }
     } else if (action.type === 'LOGOUT') {
@@ -61,6 +63,11 @@ const AuthReducer = (state=initialState,action) => {
         return {
             ...state,
             currentChatUser:action.payload
+        }
+    }else if (action.type === 'PROFILE_CHANGED') {
+        return {
+            ...state,
+            newUserData:action.payload
         }
     }else {
         return state

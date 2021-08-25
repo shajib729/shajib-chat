@@ -3,9 +3,10 @@ import React, { useEffect, useRef, useState } from 'react'
 import Message from '../Message/Message'
 import './Right.css'
 import { useDispatch, useSelector } from 'react-redux';
-import io from 'socket.io-client'
 import RightTopBar from './RightTopBar/RightTopBar';
 import { useParams } from 'react-router-dom';
+import { Skeleton } from '@material-ui/lab';
+import io from 'socket.io-client'
 
 let socket;
     
@@ -43,18 +44,13 @@ const Right = ({ currentConversation }) => {
 
     const handleSubmit =async (e) => {
         e.preventDefault()
+        
         if (newMessage?.trim()) {
             const message={
                 senderId: user._id,
                 text: newMessage,
                 conversationId:currentConversation
             }
-
-            // const receiverId = conversationUser?.find((conversation) => {
-            //     return conversation._id===currentConversation
-            // }).members.find(rec => rec !== user._id)
-            // console.log(receiverId);
-
              
             const res = await fetch('/api/newMessage', {
                 method: "post",
@@ -99,11 +95,11 @@ const Right = ({ currentConversation }) => {
                         messages.length?(messages.map((m,i)=>
 
                             <div ref={scrollToBottom} >
-                                <Message key={i} message={m} own={m?.senderId===user._id?'own':''}/>
+                                <Message currentChatUser={currentChatUser.profilePicture} key={i} message={m} own={m?.senderId===user._id?'own':''}/>
                             </div>
 
-                        )):<h1 style={{display: 'flex', justifyContent: "center", alignItems:'center',height:'100%'}}>No message😪</h1>
-                        : <h1 style={{display: 'flex', justifyContent: "center", alignItems:'center',height:'100%'}}>Loading...</h1>
+                        )):<h1 style={{alignSelf:"center",top:'50%',position:"absolute"}}>No message😪</h1>
+                        : <h1 style={{alignSelf:"center",top:'50%',position:"absolute"}}>Loading...</h1>
                     }
                     </div>
                 </div>

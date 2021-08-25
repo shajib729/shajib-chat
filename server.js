@@ -6,6 +6,7 @@ const port = process.env.PORT || 5000
 const path = require('path')
 const cookieParser = require('cookie-parser')
 const io = require("socket.io")(http)
+const fileUpload = require('express-fileupload');
 
 const {users,addUser,removeUser,getUser} = require('./socket/socketController')
 
@@ -14,6 +15,10 @@ app.use(cookieParser())
 //parser
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+app.use(fileUpload({
+  limits: { fileSize: 50 * 1024 * 1024 },
+}));
 
 app.use('/api', require('./routes/user'))
 app.use('/api', require('./routes/conversation'))

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { ArrowBack } from '@material-ui/icons'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
+import Skeleton from '@material-ui/lab/Skeleton';
 
 const RightTopBar = () => {
     const {id}=useParams()
@@ -33,9 +34,20 @@ const RightTopBar = () => {
 
     return (
         <div className="profile">
-            <Link to="/"><ArrowBack className="backMobileButton"/></Link>
-            <img className="profileImage" src={currentChatUser?.profilePicture} alt="" />
-            <div className="profileName">{currentChatUser?.username}</div>
+            {
+                currentChatUser ? (
+                    <>
+                    <Link to="/"><ArrowBack className="backMobileButton"/></Link>
+                    <img className="profileImage" src={currentChatUser?.profilePicture} alt="" />
+                    <div className="profileName">{currentChatUser?.username}</div>
+                    </>
+                ):(
+                    <div style={{display:'flex',alignItems:"center"}}>
+                        <Skeleton variant="circle" width={50} height={50}  style={{background:"rgb(0 0 0 / 20%)"}} />
+                        <Skeleton variant="text" width={100} height={30} style={{background:"rgb(0 0 0 / 20%)",marginLeft:"20px"}}/>
+                    </div>
+                )
+            }
         </div>
     )
 }
