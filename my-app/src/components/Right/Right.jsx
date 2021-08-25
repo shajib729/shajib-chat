@@ -95,7 +95,7 @@ const Right = ({ currentConversation }) => {
                         messages.length?(messages.map((m,i)=>
 
                             <div ref={scrollToBottom} >
-                                <Message currentChatUser={currentChatUser.profilePicture} key={i} message={m} own={m?.senderId===user._id?'own':''}/>
+                                <Message currentChatUser={currentChatUser?.profilePicture} key={i} message={m} own={m?.senderId===user._id?'own':''}/>
                             </div>
 
                         )):<h1 style={{alignSelf:"center",top:'50%',position:"absolute"}}>No message😪</h1>
