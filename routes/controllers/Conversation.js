@@ -26,6 +26,36 @@ const getConversation = async (req, res) => {
     try {
         const conversation = await Conversation.find({ members: { $in: [req.params.userId] } })
         if (conversation) {
+            // console.log(conversation);
+            res.status(200).json({message:conversation})
+        } else {
+            res.status(400).json({error:'No conversatiion'})
+        }
+    } catch (err) {
+        res.status(400).json({error:err.message})
+    }
+}
+
+// Delete All Conversation of A User by his _id Controller
+const deleteConversation = async (req, res) => {
+    try {
+        const conversation = await Conversation.deleteMany({ members: { $in: [req.userId] } })
+        
+        if (conversation) {
+            res.status(200).json({message:conversation})
+        } else {
+            res.status(400).json({error:'No conversatiion'})
+        }
+    } catch (err) {
+        res.status(400).json({error:err.message})
+    }
+}
+
+// Delete One Conversation of A User by his Friend Controller
+const deleteFriendConversation = async (req, res) => {
+    try {
+        const conversation = await Conversation.findOneAndDelete({ $and: [{ members: { "$in": [req.userId] } }, { members: { "$in": [req.params.id] } }] })
+        if (conversation) {
             res.status(200).json({message:conversation})
         } else {
             res.status(400).json({error:'No conversatiion'})
@@ -36,4 +66,4 @@ const getConversation = async (req, res) => {
 }
 
 
-module.exports={createConversation,getConversation}
+module.exports={createConversation,getConversation,deleteConversation,deleteFriendConversation}

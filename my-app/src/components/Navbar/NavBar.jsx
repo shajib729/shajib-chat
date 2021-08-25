@@ -5,10 +5,11 @@ import { KeyboardBackspace, Search } from '@material-ui/icons';
 import { Button } from '@material-ui/core';
 import { useDispatch,useSelector } from 'react-redux'
 import SearchResult from '../SearchResult/SearchResult';
+import ProfileButton from '../ProfileButton/ProfileButton'
 
 const NavBar = () => {
     const dispatch = useDispatch()
-    const { user } = useSelector(state => state.AuthReducer)
+    const { user,userProfile } = useSelector(state => state.AuthReducer)
 
     const [searchInput,setSearchInput]=useState()
     const [showSerachMobile,setShowSerachMobile]=useState(false)
@@ -52,13 +53,9 @@ const NavBar = () => {
 
             {/* hader right  */}
             <div className="headerRight">
-                <div className="profile">
-                    <img src={user.profilePicture} alt="" className="profileImage" />
-                        <sapn className="profileName">{user.username.split(' ')[0]}</sapn>
-                </div>
-                <Button className="logoutButton" onClick={logoutHandle} variant="contained" color="primary">
-                    Logout
-                </Button>             
+                
+                <ProfileButton props={{logoutHandle}}/>
+                
             </div>
             </nav>
         </header>

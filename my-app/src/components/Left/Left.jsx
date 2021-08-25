@@ -41,7 +41,8 @@ const Left = ({currentConversation}) => {
                     <NavLink onClick={ ()=>setTimeout(()=>{dispatch({type:"SCROLL_BOTTOM"})},500)} activeClassName="active" to={`/message/${conversation._id}`}>
                         <ChatUser conversation={conversation}/>
                     </NavLink>
-                    )):<h2 style={{color:'gray',userSelect:'none'}}>No user found! Search Your Friends...🤷‍♀️</h2>
+                    ))
+                    :<h2 style={{textAlign:"center",color:'gray',userSelect:'none'}}>No user found! Search Your Friends...🤷‍♀️</h2>
                     :<h1>Loading...</h1>
                 }  
             </div>

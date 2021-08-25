@@ -52,7 +52,7 @@ const SearchResult = ({ searchInput,setSearchInput }) => {
                     users?.filter((user1) =>user1._id!==user._id && user1.username.toLowerCase().includes(searchInput?.trim().toLowerCase()))
                     .map((use,i) => (
                     <div onClick={()=>handleClickedUser(use)} key={i+100} className="searchUser">
-                        <img className="userProfile" src="../images/noAvatar.png" alt="" />
+                        <img className="userProfile" src={use?.profilePicture || "../images/noAvatar.png"} alt="" />
                         <span className="userName">{use.username}</span>
                     </div>
                     )) : <div className="noUserFound">No User is Found</div>}

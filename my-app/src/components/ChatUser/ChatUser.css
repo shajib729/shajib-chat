@@ -1,1 +1,74 @@
-/* No CSS *//*# sourceMappingURL=ChatUser.css.map */
+.deleteFriendCom {
+  position: fixed;
+  top: -50%;
+  left: 50%;
+  -webkit-transform: translatex(-50%);
+          transform: translatex(-50%);
+  z-index: 99999;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
+.deleteFriendCom .showPopup {
+  height: 140px;
+  background: white;
+  border-radius: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 30px 20px;
+  margin-top: 0px;
+  -webkit-transition: .3s;
+  transition: .3s;
+  -webkit-box-shadow: 4px 4px 10px #0000003c;
+          box-shadow: 4px 4px 10px #0000003c;
+}
+
+.deleteFriendCom .showPopup .icon-text {
+  text-align: center;
+}
+
+.deleteFriendCom .showPopup .warningIcon {
+  font-size: 60px;
+  color: #f50057;
+}
+
+.deleteFriendCom .showPopup h1 {
+  text-align: center;
+}
+
+.deleteFriendCom .showPopup .button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.deleteFriendCom .showPopup .button button {
+  margin-left: 20px;
+}
+
+.deleteFriendCom.active {
+  visibility: visible;
+  opacity: 1;
+  top: 65px;
+}
+
+.deleteFriendCom.active .showPopup {
+  margin-top: 0;
+}
+/*# sourceMappingURL=ChatUser.css.map */

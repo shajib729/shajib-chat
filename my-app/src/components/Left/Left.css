@@ -45,6 +45,9 @@
   border-radius: 10px;
   margin-top: 5px;
   cursor: pointer;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .leftContainer .leftChatUsers .leftChatUser:hover {

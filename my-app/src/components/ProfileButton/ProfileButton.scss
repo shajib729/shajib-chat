@@ -1,0 +1,29 @@
+.profilePopup{
+    position: absolute;
+    top: 70px;
+    background: #e9f4ff;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    padding: 5px 10px;
+    box-shadow: 3px 3px 10px #00000030;
+    transition: .3s;
+    visibility: hidden;
+    opacity: 0;
+
+    button{
+        border-radius: 6px;
+        transition: .3s;
+        color: black;
+
+        &:hover{
+            background: #dedede; 
+        }
+    }
+}
+
+.profilePopup.active{
+    visibility: visible;
+    opacity: 1;
+    top: 65px;
+}

@@ -1,0 +1,38 @@
+.profilePopup {
+  position: absolute;
+  top: 70px;
+  background: #e9f4ff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  border-radius: 5px;
+  padding: 5px 10px;
+  -webkit-box-shadow: 3px 3px 10px #00000030;
+          box-shadow: 3px 3px 10px #00000030;
+  -webkit-transition: .3s;
+  transition: .3s;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.profilePopup button {
+  border-radius: 6px;
+  -webkit-transition: .3s;
+  transition: .3s;
+  color: black;
+}
+
+.profilePopup button:hover {
+  background: #dedede;
+}
+
+.profilePopup.active {
+  visibility: visible;
+  opacity: 1;
+  top: 65px;
+}
+/*# sourceMappingURL=ProfileButton.css.map */
