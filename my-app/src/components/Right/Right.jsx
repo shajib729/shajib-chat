@@ -80,7 +80,7 @@ const Right = ({ currentConversation }) => {
         <section className={mobile.id?"RightContainer mobileActive":"RightContainer"}>
         {
             currentConversation?
-            conversationUser.some(e=>e._id===currentConversation) ? <>
+            conversationUser?.some(e=>e._id===currentConversation) ? <>
             {/* Right Top Bar */}
             <div className="rightTopBar">
                 <RightTopBar/>

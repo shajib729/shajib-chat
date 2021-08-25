@@ -50,7 +50,6 @@ const ChatUser = ({ conversation }) => {
     }
 
     useEffect(() => {
-        console.log("Location changed");
         getUser()
     }, [id])
       
