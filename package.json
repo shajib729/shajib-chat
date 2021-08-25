@@ -4,10 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node server.js",
-    "clientInstall": "npm install --prefix my-app",
-    "build": "npm run build --prefix my-app",
-    "heroku-postbuild": "npm run clientInstall && npm run build"
+    "start": "node app.js",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix my-app && npm run build --prefix my-app"
   },
   "keywords": [],
   "author": "",

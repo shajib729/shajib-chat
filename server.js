@@ -54,11 +54,13 @@ app.use('/api', require('./routes/message'))
 
 
 // 3: setup in heroku 
-if (process.env.NODE_ENV == 'production') {
-  app.use(express.static(path.join(__dirname,"/my-app/build/")))
-  app.get('*', (req, res) => {
-      res.sendFile(path.resolve(__dirname,"my-app",'build','index.html'))
-  })
+if (process.env.NODE_ENV !== "production") {
+    // Step 1:
+    app.use(express.static(path.resolve(__dirname, "./my-app/build")));
+    // Step 2:
+    app.get("*", function (request, response) {
+      response.sendFile(path.resolve(__dirname, "./my-app/build", "index.html"));
+    });
 }
 
 http.listen(port, () => {
