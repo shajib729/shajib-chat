@@ -10,8 +10,8 @@ const Message = ({ message, own,currentChatUser}) => {
     return (
         <ScrollToBottom>
         <div className={`message ${own}`}>
-            <div class  Name="messageTop">
-                {own?<img className="messageImg" src={newUserData.profilePicture || '../images/noAvatar.png'} alt="" />:<img className="messageImg" src={currentChatUser || '../images/noAvatar.png'} alt="" />}
+            <div className="messageTop">
+                {own?<img className="messageImg" src={newUserData?.profilePicture || '../images/noAvatar.png'} alt="" />:<img className="messageImg" src={currentChatUser || '../images/noAvatar.png'} alt="" />}
                 <p className="messageText">{message?.text}</p>
             </div>
             <div className="messageBottom">{moment(message?.createdAt).fromNow()}</div>

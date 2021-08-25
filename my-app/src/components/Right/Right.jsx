@@ -23,6 +23,7 @@ const Right = ({ currentConversation }) => {
     const [newMessage,setNewMessage]=useState()
 
     const getMessages = async () => {
+        console.log(currentConversation);
         const res = await fetch(`/api/message/${currentConversation}`, {
             method:"get"
         })
@@ -80,7 +81,7 @@ const Right = ({ currentConversation }) => {
         <section className={mobile.id?"RightContainer mobileActive":"RightContainer"}>
         {
             currentConversation?
-            conversationUser.some(e=>e._id===currentConversation) ? <>
+            conversationUser?.some(e=>e._id===currentConversation) ? <>
             {/* Right Top Bar */}
             <div className="rightTopBar">
                 <RightTopBar/>
@@ -95,7 +96,7 @@ const Right = ({ currentConversation }) => {
                         messages.length?(messages.map((m,i)=>
 
                             <div ref={scrollToBottom} >
-                                <Message currentChatUser={currentChatUser.profilePicture} key={i} message={m} own={m?.senderId===user._id?'own':''}/>
+                                <Message currentChatUser={currentChatUser?.profilePicture} key={i} message={m} own={m?.senderId===user._id?'own':''}/>
                             </div>
 
                         )):<h1 style={{alignSelf:"center",top:'50%',position:"absolute"}}>No message😪</h1>
