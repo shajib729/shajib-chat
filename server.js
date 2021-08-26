@@ -8,7 +8,7 @@ const cookieParser = require('cookie-parser')
 const io = require("socket.io")(http)
 const fileUpload = require('express-fileupload');
 
-const {users,addUser,removeUser,getUser} = require('./socket/socketController')
+// const {users,addUser,removeUser,getUser} = require('./socket/socketController')
 
 require('./db/conn')
 app.use(cookieParser())
@@ -54,7 +54,7 @@ app.use('/api', require('./routes/message'))
 
 
 // 3: setup in heroku 
-if (process.env.NODE_ENV !== "production") {
+if (process.env.NODE_ENV === "production") {
     // Step 1:
     app.use(express.static(path.resolve(__dirname, "./my-app/build")));
     // Step 2:

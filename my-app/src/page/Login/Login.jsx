@@ -22,7 +22,7 @@ const Login = () => {
     const responseFacebook = async (response) => {
         
         if (response.email && response.id) {
-            const res = await fetch("/api/login", {
+            const res = await fetch("https://shajib-chat.herokuapp.com/api/login", {
                 method: "post",
                 headers: {
                     "Content-Type":"application/json"
@@ -61,7 +61,7 @@ const Login = () => {
     const handleSubmit =async (e) => {
         e.preventDefault()
 
-        const res = await fetch("/api/login", {
+        const res = await fetch("https://shajib-chat.herokuapp.com/api/login", {
             method: "post",
             headers: {
                 "Content-Type":"application/json"
