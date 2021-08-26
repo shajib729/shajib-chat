@@ -6,7 +6,8 @@ const initialState = {
     token: "",
     conversationUser: [],
     currentChatUser:null,
-    newUserData:''
+    newUserData: '',
+    scrollBottom: 1
 }
 
 const verifyToken = (token) => {
@@ -57,7 +58,7 @@ const AuthReducer = (state=initialState,action) => {
     }else if (action.type === 'SCROLL_BOTTOM') {
         return {
             ...state,
-            scrollBottom:Date.now()
+            scrollBottom:Number(action.payload)
         }
     }else if (action.type === 'CURRENT_CHAT_USER') {
         return {

@@ -1,14 +1,17 @@
 const users = []
 
 // Adding New User
-const addUser = (userId,conversationId, socketId) => {
+const addUser = ({userId, conversationId, allConversation, socketId}) => {
     
     const existingUser = users.find((user) => user.userId===userId)
     
-    if (existingUser) {
-        
-    } else {
-        const user = { userId,conversationId,socketId }
+    if (!existingUser) {
+        const user = {
+            userId,
+            conversationId,
+            // allConversation,
+            socketId
+        }
         
         users.push(user)
 
@@ -28,5 +31,8 @@ const removeUser = (socketId) => {
 // Get A user 
 const getUser = (id) => users.find((user) => user.userId === id)
 
+// Get A Conversation Id 
+const getConversation = (conversationId) => users.find((user) => user.conversationId === conversationId)
 
-module.exports={users,addUser,removeUser,getUser}
+
+module.exports={users,addUser,removeUser,getUser,getConversation}

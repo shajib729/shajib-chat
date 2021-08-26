@@ -27,7 +27,7 @@ header nav {
 
 @media (max-width: 768px) {
   header nav {
-    padding-right: 30px;
+    padding-right: 0px;
   }
 }
 

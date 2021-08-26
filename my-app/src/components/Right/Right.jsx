@@ -19,11 +19,12 @@ const Right = ({ currentConversation }) => {
     const mobile = useParams()
     // console.log(mobile);
 
-    const [messages,setMessages]=useState()
+    const [messages,setMessages]=useState([])
     const [newMessage,setNewMessage]=useState()
-
+    const [arrivalMessage, setArrivalMessage] = useState([])
+    
     const getMessages = async () => {
-        console.log(currentConversation);
+        // console.log(messages);
         const res = await fetch(`/api/message/${currentConversation}`, {
             method:"get"
         })
@@ -37,11 +38,23 @@ const Right = ({ currentConversation }) => {
         }
     }
 
-    useEffect(() => {        
-        // socket = io(URL)
-        getMessages()
+    useEffect(() => {
+        getMessages()        
+        socket = io(URL)
+        // console.log(conversationUser);
+        socket.emit("join", { userId:user._id ,conversationId:currentConversation, allConversation:conversationUser })     
+
+        socket.on('getUsers', (users) => {
+            // console.log(users);// TODO: GETING ALL Online User
+        })
         
-    }, [currentConversation])
+        // socket.on("getMessage", (message) => {
+        //     console.log('message', message);
+        //     setArrivalMessage([...arrivalMessage,{senderId:message.senderId,text:message.text,conversationId:message.conversationId}])
+        //     setMessages([...messages,...arrivalMessage])
+        // })
+
+    }, [scrollBottom, currentConversation])
 
     const handleSubmit =async (e) => {
         e.preventDefault()
@@ -52,6 +65,13 @@ const Right = ({ currentConversation }) => {
                 text: newMessage,
                 conversationId:currentConversation
             }
+            
+            socket.emit("sendMessage",{...message,receiverId:currentChatUser._id})
+
+            // socket.on("getMessage", (data) => {
+            //     console.log(data);
+            //     dispatch({ type: 'SCROLL_BOTTOM', payload:Math.random()})
+            // })
              
             const res = await fetch('/api/newMessage', {
                 method: "post",
@@ -70,6 +90,15 @@ const Right = ({ currentConversation }) => {
             setNewMessage('')
         }
     }
+
+    useEffect(() => {
+        // console.log('s')
+        socket.on("getMessage", (data) => {
+            // console.log(data);
+            dispatch({ type: 'SCROLL_BOTTOM', payload:Math.random()})
+        })
+         
+    },[scrollBottom])
 
     const scrollToBottom = useRef()
     

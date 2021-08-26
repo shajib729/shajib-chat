@@ -5,13 +5,20 @@ const http=require("http").createServer(app)
 const port = process.env.PORT || 5000
 const path = require('path')
 const cookieParser = require('cookie-parser')
-const io = require("socket.io")(http)
+const io = require("socket.io")(http, {
+  cors: {
+    origin: "http://localhost:3000",
+}
+})
+const cors=require('cors')
 const fileUpload = require('express-fileupload');
+const { disconnect } = require('process');
 
-// const {users,addUser,removeUser,getUser} = require('./socket/socketController')
+const {users,addUser,removeUser,getUser,getConversation} = require('./socket/socketController')
 
 require('./db/conn')
 app.use(cookieParser())
+app.use(cors())
 //parser
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -26,31 +33,44 @@ app.use('/api', require('./routes/message'))
 
 
 //TODO: socket io
-// io.on('connection', (socket) => {
-//   console.log(`A user is connected ${socket.id}`);
+io.on('connection', (socket) => {
+  console.log(`A user is connected ${socket.id}`);
 
-//   // When a user is joined
-//   socket.on('join', ({userId,conversationId}) => {
-//     const data=addUser(userId, conversationId, socket.id);
-//     console.log(data);
+  // When a user is joined
+  socket.on('join', ({userId,conversationId,allConversation}) => {
+    const data=addUser({userId,conversationId,allConversation, socketId:socket.id});
+    // console.log(data);
   
-//     // send all conected users to client 
-//     io.emit("getUsers", users)
+    // send all conected users to client 
+    io.emit("getUsers", users)
+    console.log(users);
+    // socket.broadcast.to(data.conversationId).emit('message',)
 
-//     // socket.join(data.conversationId)//check this 
+    // data.conversationId?socket.join(data.conversationId):null // TODO:
 
-//     // io.to(data.conversationId).emit('conversatonId',{})  
-//   })
+    // io.to(data.conversationId).emit('users',{users:getConversation(data.conversationId)}) // TODO: 
+  })
 
-//   //S Send message
-//   socket.on('sendMessage', (data) => {
-//     console.log(data);
-//   })
+  // When User Send message
+  socket.on('sendMessage',async (message) => {
+    const receiver =await getUser(message?.receiverId)
+    // console.log("receiver",receiver?.socketId,message);
+    
+    io.to(receiver?.socketId).emit('getMessage', message)
+    
+  })
 
-//   socket.on("disconnect", () => {
-//     console.log(`${socket.id} is disconected`);
-//   })
-// })
+  // When User Disconnect
+  socket.on("disconnect", () => {
+    console.log(`${socket.id} is disconected`);
+    const user = removeUser(socket.id)
+    
+    if (user) {
+      io.to(user.conversationId).emit('message',{user:user,activeUser:users,message:"This user is left"})
+    }
+
+  })
+})
 
 
 // 3: setup in heroku 
