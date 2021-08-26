@@ -10,7 +10,7 @@ import io from 'socket.io-client'
 
 let socket;
     
-let URL = 'localhost:5000/'
+let URL = 'https://shajib-chat.herokuapp.com/'
 
 const Right = ({ currentConversation }) => {
     const { user, conversationUser, scrollBottom,currentChatUser } = useSelector(state => state.AuthReducer)
@@ -85,7 +85,7 @@ const Right = ({ currentConversation }) => {
             // console.log(data); 
             setMessages([...messages,data.message])
             setTimeout(() => {
-                dispatch({type:"SCROLL_BOTTOM"})
+                dispatch({type:"SCROLL_BOTTOM",payload:Math.random()})
             },100)
             setNewMessage('')
         }

@@ -7,7 +7,7 @@ const path = require('path')
 const cookieParser = require('cookie-parser')
 const io = require("socket.io")(http, {
   cors: {
-    origin: "http://localhost:3000",
+    origin: "https://shajib-chat.herokuapp.com/",
 }
 })
 const cors=require('cors')
