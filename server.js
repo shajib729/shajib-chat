@@ -54,7 +54,7 @@ app.use('/api', require('./routes/message'))
 
 
 // 3: setup in heroku 
-if (process.env.NODE_ENV === "production") {
+if (process.env.NODE_ENV !== "production") {
     // Step 1:
     app.use(express.static(path.resolve(__dirname, "./my-app/build")));
     // Step 2:
