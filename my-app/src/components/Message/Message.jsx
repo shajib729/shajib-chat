@@ -1,11 +1,11 @@
-import React, { useEffect,useState } from 'react'
+import React, { } from 'react'
 import moment from 'moment'
 import './Message.css'
 import ScrollToBottom from 'react-scroll-to-bottom';
 import { useSelector } from 'react-redux';
 
 const Message = ({ message, own,currentChatUser}) => {
-    const { user, newUserData } = useSelector(state => state.AuthReducer)
+    const { newUserData } = useSelector(state => state.AuthReducer)
     
     return (
         <ScrollToBottom>
