@@ -146,7 +146,6 @@ const Login = () => {
                                 icon={<Facebook className="facebookIcon"/>}
                             /> 
                         </Button>
-                        <div class="fb-login-button" data-width="" data-size="large" data-button-type="continue_with" data-layout="default" data-use-continue-as="false"></div>
                     </div>
                     
                     <div className="dontAccount">Don't have any accont?</div>
