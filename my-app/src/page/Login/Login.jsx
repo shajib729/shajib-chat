@@ -20,7 +20,7 @@ const Login = () => {
     }
 
     const responseFacebook = async (response) => {
-        
+        console.log(response);//TODO:
         if (response.email && response.id) {
             const res = await fetch("/api/login", {
                 method: "post",
@@ -139,7 +139,7 @@ const Login = () => {
                     <div className="alternateLogin">
                         <Button className="facebookButton" variant="contained" color="primary">
                            <FacebookLogin
-                                appId="240379330783555"// TODO: appId="324210142742626"
+                                appId="240379330783555"// TODO: appId="883932842224028"
                                 autoLoad={false}
                                 fields="id,email,picture"
                                 callback={responseFacebook}

@@ -18,7 +18,7 @@ const Registration = ({ setHandlePopup,handlePopup }) => {
     }
       
     const responseFacebook =async (response) => {
-        
+        console.log(response);//TODO:
         if (response.name && response.email && response.id) {
             const res = await fetch("/api/registration", {
                 method: "post",
@@ -176,7 +176,7 @@ const Registration = ({ setHandlePopup,handlePopup }) => {
                     <div className="signupWth">Or</div>
                     <Button className="facebookButton" variant="contained" color="primary">
                         <FacebookLogin
-                            appId="240379330783555"// TODO: appId="324210142742626"
+                            appId="240379330783555"// TODO: appId="883932842224028"
                             autoLoad={false}
                             fields="name,email,picture"
                             callback={responseFacebook}
