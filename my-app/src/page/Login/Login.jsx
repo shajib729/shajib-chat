@@ -95,7 +95,8 @@ const Login = () => {
             dispatch({type:"LOGIN",payload:data.token})
         }
     }
-    
+
+     
     return (
         <section className="loginContainer">
             <ToastContainer />
@@ -144,7 +145,8 @@ const Login = () => {
                                 callback={responseFacebook}
                                 icon={<Facebook className="facebookIcon"/>}
                             /> 
-                        </Button>                        
+                        </Button>
+                        <div class="fb-login-button" data-width="" data-size="large" data-button-type="continue_with" data-layout="default" data-use-continue-as="false"></div>
                     </div>
                     
                     <div className="dontAccount">Don't have any accont?</div>
