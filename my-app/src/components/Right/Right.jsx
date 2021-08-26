@@ -23,6 +23,7 @@ const Right = ({ currentConversation }) => {
     const [newMessage,setNewMessage]=useState()
 
     const getMessages = async () => {
+        console.log(currentConversation);
         const res = await fetch(`/api/message/${currentConversation}`, {
             method:"get"
         })
