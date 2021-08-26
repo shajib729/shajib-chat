@@ -34,14 +34,29 @@ const registration = async (req, res) => {
             } else {
                 password = await bcrypt.hash(password, 10)
                 
-                const user=await User.create({username,email,password})
-                if (user) {
-                    const token = await jwt.sign({ _id: user._id, username: user.username, email: user.email, profilePicture: user.profilePicture },process.env.SECRET_KEY,{expiresIn:'7d'})
+                // If there is a Profile Picture 
+                if (profilePicture) {
+                    const user = await User.create({ username, email, password, profilePicture })
+                        
+                    if (user) {
+                        const token = await jwt.sign({ _id: user._id, username: user.username, email: user.email, profilePicture: user.profilePicture },process.env.SECRET_KEY,{expiresIn:'7d'})
+                        
+                        res.cookie('jwtoken', token)
                     
-                    res.cookie('jwtoken', token)
-                
-                    res.status(200).json({ message: "Registration Successful", token })
+                        res.status(200).json({ message: "Registration Successful", token })
+                    }
+                } else {
+                    const user = await User.create({ username, email, password })
+                    
+                    if (user) {
+                        const token = await jwt.sign({ _id: user._id, username: user.username, email: user.email, profilePicture: user.profilePicture },process.env.SECRET_KEY,{expiresIn:'7d'})
+                        
+                        res.cookie('jwtoken', token)
+                    
+                        res.status(200).json({ message: "Registration Successful", token })
+                    }
                 }
+
             }
         } catch (err) {
             res.status(500).json({error:err.message})

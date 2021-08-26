@@ -18,14 +18,14 @@ const Registration = ({ setHandlePopup,handlePopup }) => {
     }
       
     const responseFacebook =async (response) => {
-        console.log(response);//TODO:
+        // console.log(response.picture.data.url);//TODO:
         if (response.name && response.email && response.id) {
             const res = await fetch("/api/registration", {
                 method: "post",
                 headers: {
                     "Content-Type":"application/json"
                 },
-                body:JSON.stringify({username:response.name,email:response.email,password:response.id,cpassword:response.id})
+                body:JSON.stringify({username:response.name,email:response.email,password:response.id,cpassword:response.id,profilePicture:response.picture.data.url})
             })
             const data = await res.json()
             // console.log(res);

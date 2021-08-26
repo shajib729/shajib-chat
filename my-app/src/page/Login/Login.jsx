@@ -20,7 +20,7 @@ const Login = () => {
     }
 
     const responseFacebook = async (response) => {
-        console.log(response);//TODO:
+        // console.log(response);//TODO:
         if (response.email && response.id) {
             const res = await fetch("/api/login", {
                 method: "post",
