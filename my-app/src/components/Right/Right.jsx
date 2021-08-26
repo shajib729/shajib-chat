@@ -40,7 +40,7 @@ const Right = ({ currentConversation }) => {
     useEffect(() => {        
         // socket = io(URL)
         getMessages()
-
+        
     }, [currentConversation])
 
     const handleSubmit =async (e) => {
